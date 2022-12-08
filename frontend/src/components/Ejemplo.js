@@ -23,7 +23,7 @@ componentDidMount() {
 
 refreshList = () => {
   axios
-    .get("/api")
+    .get("/api/ejemplo")
     .then((res) => this.setState({ todoList: res.data }))
     .catch((err) => console.log(err));
 };
@@ -31,6 +31,7 @@ refreshList = () => {
 
 renderItems = () => {
   const newItems = this.state.todoList;
+  console.log('newItems', newItems)
   return newItems.map((item) => (
     <li
       key={item.id}
@@ -38,9 +39,9 @@ renderItems = () => {
     >
       <span
         className={`todo-title mr-2`}
-        title={item.id}
+        title={item.campo}
       >
-        {item.id}
+        {item.campo}
       </span>
 
     </li>
